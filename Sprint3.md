@@ -12,7 +12,7 @@ Successfully implemented the retrieval layer of the RAG pipeline. This sprint en
 ## Technical Decisions
 - **Cosine Distance:** Used the default distance metric in `pgvector` which works well with the `all-MiniLM-L6-v2` model for finding conceptual similarity.
 - **Score Inclusion:** Included the similarity score in the response to help evaluate the "confidence" of the RAG system's matches.
-- **Deduplication Strategy (In Progress):** Identified the need for upsert/deduplication logic during ingestion to handle multiple runs of the pipeline gracefully.
+- **Deduplication Strategy:** Implemented a robust check for existing TMDB IDs before ingestion and added a `reset` parameter to the ingestion endpoint to allow for a clean state.
 
 ## Observations
 - The semantic search successfully identified "Masters of the Universe" for a superhero query, demonstrating that the embedding model understands high-level concepts even when specific keywords might be missing.
