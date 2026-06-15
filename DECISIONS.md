@@ -10,5 +10,11 @@
 - **Hugging Face (Embeddings):** Using local `sentence-transformers` for embeddings. This removes the cost and latency of API-based embeddings while keeping the project "free-to-run."
 - **LangChain (LCEL):** Using the modern LangChain Expression Language for building the RAG pipeline. This provides better observability and composability compared to legacy syntax.
 
+## Frontend Stack
+- **Next.js (App Router):** Provides a modern React framework with excellent performance, SEO, and developer experience.
+- **TypeScript:** Ensures type safety across the frontend, reducing bugs and improving maintainability.
+- **Tailwind CSS:** Chosen for rapid, consistent UI development and easy responsive design.
+- **React Markdown:** Used to render the rich text (bolding, lists) returned by the LLM in a user-friendly way.
+
 ## Infrastructure
 - **Docker Compose:** Used to orchestrate the backend and database during development, ensuring environment parity across different machines.

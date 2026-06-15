@@ -1,9 +1,19 @@
 from fastapi import FastAPI, BackgroundTasks, Query
+from fastapi.middleware.cors import CORSMiddleware
 from app.ingestion import ingest_movies
 from app.retrieval import search_movies
 from app.llm import generate_chat_response
 
 app = FastAPI(title="CinemaRAG API")
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, specify the exact frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/health")
 async def health_check():
