@@ -1,6 +1,7 @@
 from fastapi import FastAPI, BackgroundTasks, Query
 from app.ingestion import ingest_movies
 from app.retrieval import search_movies
+from app.llm import generate_chat_response
 
 app = FastAPI(title="CinemaRAG API")
 
@@ -29,3 +30,11 @@ async def search(query: str = Query(..., min_length=1), k: int = 5):
     """
     results = await search_movies(query, k=k)
     return {"query": query, "results": results}
+
+@app.get("/chat")
+async def chat(query: str = Query(..., min_length=1)):
+    """
+    Ask a question and get a conversational response based on retrieved movies.
+    """
+    response = await generate_chat_response(query)
+    return {"query": query, "response": response}
