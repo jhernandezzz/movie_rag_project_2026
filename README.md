@@ -15,7 +15,7 @@ An intelligent movie discovery chatbot built with FastAPI, LangChain, and pgvect
    ```bash
    cp .env.example .env
    ```
-   Fill in your `OPENAI_API_KEY` and `TMDB_API_KEY`.
+   Fill in your `GOOGLE_API_KEY` and `TMDB_READ_ACCESS_TOKEN`.
 3. **Start the infrastructure:**
    ```bash
    docker-compose up --build
