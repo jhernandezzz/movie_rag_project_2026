@@ -1,5 +1,4 @@
 import logging
-import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -11,21 +10,14 @@ from app.retrieval import get_vector_store
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# --- DIAGNOSTIC BLOCK ---
-try:
-    genai.configure(api_key=settings.GOOGLE_API_KEY)
-    models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
-    logger.info(f"AVAILABLE MODELS: {models}")
-except Exception as e:
-    logger.error(f"DIAGNOSTIC FAILED: {e}")
-# ------------------------
-
 # Initialize Gemini
-# Using gemini-flash-latest for better stability and free-tier quota
+# Note: Switching to gemini-3.1-flash-lite which offers a higher 
+# free-tier rate limit (30 RPM) compared to Gemini 3.5 Flash (5-15 RPM).
 llm = ChatGoogleGenerativeAI(
-    model="gemini-flash-latest",
+    model="gemini-3.1-flash-lite",
     google_api_key=settings.GOOGLE_API_KEY,
     temperature=0.7,
+    max_retries=2,
 )
 
 # Define the RAG prompt

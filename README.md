@@ -1,24 +1,60 @@
-# CinemaRAG
+# CinemaRAG 🎬
 
-An intelligent movie discovery chatbot built with FastAPI, LangChain, and pgvector.
+An intelligent, full-stack movie discovery engine powered by **Retrieval-Augmented Generation (RAG)**. CinemaRAG uses the Gemini API, LangChain, and PGVector to provide conversational recommendations based on a high-quality movie database.
 
-## Project Structure
+## 🚀 Features (v3)
 
-- `/backend`: FastAPI service, LangChain logic, and data ingestion.
-- `/frontend`: Next.js chat interface.
-- `docker-compose.yml`: Local infrastructure (Postgres + pgvector).
+- **AI Discovery Engine:** Powered by `gemini-3.1-flash-lite` for fast, intelligent, and stable responses (30 RPM free tier).
+- **Polished UI:** A modern, full-width Next.js 14 interface with advanced typography and responsive design.
+- **Semantic Search:** Uses PGVector and HuggingFace embeddings (`all-MiniLM-L6-v2`) to find movies based on meaning, not just keywords.
+- **Real-time Ingestion:** Background tasks to sync popular movies directly from the TMDB API.
+- **Dark Mode Support:** Native system-aware dark mode for comfortable late-night movie browsing.
 
-## Getting Started (Sprint 1)
+## 🛠️ Tech Stack
 
-1. **Clone the repository.**
-2. **Setup environment variables:**
-   ```bash
-   cp .env.example .env
-   ```
-   Fill in your `GOOGLE_API_KEY` and `TMDB_READ_ACCESS_TOKEN`.
-3. **Start the infrastructure:**
-   ```bash
-   docker-compose up --build
-   ```
-4. **Verify the backend:**
-   Visit `http://localhost:8000/health` or `http://localhost:8000/docs` for the Swagger UI.
+- **Frontend:** Next.js 14 (App Router), TypeScript, Tailwind CSS, Lucide Icons.
+- **Backend:** FastAPI, Python 3.11, LangChain (LCEL).
+- **Database:** PostgreSQL + PGVector for high-performance vector similarity search.
+- **LLM:** Google Gemini API (Flash-Lite family).
+- **Embeddings:** HuggingFace Sentence Transformers.
+
+## 📁 Project Structure
+
+- `/backend`: FastAPI service handling ingestion, RAG logic, and API endpoints.
+- `/frontend`: Next.js web application with a polished "chat-bubble" interface.
+- `docker-compose.yml`: Local infrastructure orchestration (Database + Backend + Frontend).
+
+## 🏁 Getting Started
+
+### 1. Prerequisites
+- Docker & Docker Compose
+- Google Gemini API Key ([Get it here](https://aistudio.google.com/))
+- TMDB Read Access Token ([Get it here](https://www.themoviedb.org/settings/api))
+
+### 2. Setup Environment
+```bash
+cp .env.example .env
+```
+Update the `.env` file with your specific API keys.
+
+### 3. Launch Application
+```bash
+docker-compose up --build
+```
+- **Frontend:** `http://localhost:3000`
+- **Backend API:** `http://localhost:8000`
+- **API Docs:** `http://localhost:8000/docs`
+
+### 4. Data Ingestion
+To populate your local movie database, trigger the ingestion endpoint:
+```bash
+# Ingest 5 pages of popular movies (Background task)
+curl -X POST "http://localhost:8000/ingest?pages=5"
+```
+
+## 📈 Roadmap
+
+- [x] **Sprint 5:** Functional Next.js Chat Interface.
+- [x] **Sprint 6 (UI):** Full-width v3 Layout & Typography Polish.
+- [ ] **Sprint 6 (Eval):** RAGAS Evaluation Layer for accuracy metrics.
+- [ ] **Sprint 6 (Deploy):** Production containerization and Cloud deployment.

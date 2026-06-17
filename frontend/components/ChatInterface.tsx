@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { Clapperboard } from "lucide-react";
 import MessageBubble from "./MessageBubble";
 import ChatInput from "./ChatInput";
 import { chat } from "@/lib/api";
@@ -42,42 +43,58 @@ export default function ChatInterface() {
   };
 
   return (
-    <div className="flex flex-col h-screen max-w-3xl mx-auto border-x border-gray-200 shadow-sm bg-white dark:bg-gray-900 dark:border-gray-800">
-      <header className="p-4 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center bg-white dark:bg-gray-900 sticky top-0 z-10">
-        <div>
-          <h1 className="text-xl font-bold text-gray-800 dark:text-white">CinemaRAG</h1>
-          <p className="text-xs text-gray-500 dark:text-gray-400">Your AI Movie Discovery Guide</p>
+    <div className="flex flex-col h-screen w-full bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
+      <header className="px-6 py-4 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md sticky top-0 z-10">
+        <div className="flex items-center gap-3 max-w-7xl mx-auto w-full">
+          <div className="p-2 bg-blue-600 rounded-lg text-white shadow-lg shadow-blue-500/20">
+            <Clapperboard size={24} />
+          </div>
+          <div>
+            <h1 className="text-2xl font-black tracking-tight text-gray-900 dark:text-white uppercase">
+              Cinema<span className="text-blue-600">RAG</span>
+            </h1>
+            <p className="text-xs font-medium text-gray-500 dark:text-gray-400 tracking-widest uppercase">AI Discovery Engine</p>
+          </div>
         </div>
       </header>
 
       <div 
         ref={scrollRef}
-        className="flex-1 overflow-y-auto p-4 space-y-4 scroll-smooth"
+        className="flex-1 overflow-y-auto p-6 scroll-smooth scrollbar-thin scrollbar-thumb-gray-200 dark:scrollbar-thumb-gray-800"
       >
-        {messages.length === 0 && (
-          <div className="flex flex-col items-center justify-center h-full text-center space-y-4 opacity-70">
-            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-full">
-              🎬
+        <div className="max-w-7xl mx-auto w-full space-y-10">
+          {messages.length === 0 && (
+            <div className="flex flex-col items-center justify-center h-[60vh] text-center space-y-8 opacity-70">
+              <div className="p-8 bg-blue-50 dark:bg-blue-900/20 rounded-full text-6xl shadow-inner">
+                🎬
+              </div>
+              <div className="space-y-3">
+                <p className="text-gray-600 dark:text-gray-300 max-w-xl text-2xl font-medium leading-relaxed">
+                  Welcome to CinemaRAG
+                </p>
+                <p className="text-gray-500 dark:text-gray-400 max-w-lg mx-auto text-lg">
+                  Your AI-powered film discovery companion. Ask about actors, genres, or for a personalized recommendation.
+                </p>
+              </div>
             </div>
-            <p className="text-gray-600 dark:text-gray-300 max-w-sm">
-              Welcome to CinemaRAG! Ask me anything about movies, and I'll use my knowledge base to find the best recommendations for you.
-            </p>
-          </div>
-        )}
-        {messages.map((msg, index) => (
-          <MessageBubble key={index} message={msg} />
-        ))}
-        {isLoading && (
-          <div className="flex justify-start">
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl px-4 py-2 text-sm text-gray-500 animate-pulse">
-              CinemaRAG is thinking...
+          )}
+          {messages.map((msg, index) => (
+            <MessageBubble key={index} message={msg} />
+          ))}
+          {isLoading && (
+            <div className="flex justify-start">
+              <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl px-8 py-4 text-sm text-gray-500 animate-pulse border border-gray-200 dark:border-gray-700 shadow-sm">
+                CinemaRAG is analyzing the film archives...
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
-      <div className="p-4 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
-        <ChatInput onSend={handleSendMessage} disabled={isLoading} />
+      <div className="p-8 border-t border-gray-100 dark:border-gray-800 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto w-full">
+          <ChatInput onSend={handleSendMessage} disabled={isLoading} />
+        </div>
       </div>
     </div>
   );
