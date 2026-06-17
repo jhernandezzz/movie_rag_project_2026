@@ -26,6 +26,31 @@ def get_existing_tmdb_ids():
         cur.close()
         conn.close()
 
+def prepare_movie_documents(movies, existing_ids=None):
+    """Transform raw TMDB movie data into LangChain Documents."""
+    if existing_ids is None:
+        existing_ids = set()
+        
+    documents = []
+    for movie in movies:
+        if movie["id"] in existing_ids:
+            continue
+            
+        # Create a rich text representation for embedding
+        content = f"Title: {movie['title']}\nOverview: {movie['overview']}"
+        
+        # Metadata for filtering later
+        metadata = {
+            "tmdb_id": movie["id"],
+            "title": movie["title"],
+            "release_date": movie.get("release_date", ""),
+            "vote_average": movie.get("vote_average", 0),
+        }
+        
+        doc = Document(page_content=content, metadata=metadata)
+        documents.append(doc)
+    return documents
+
 async def ingest_movies(pages: int = 1, reset: bool = False):
     """Fetch movies from TMDB and store them in pgvector."""
     # Ensure extension is enabled
@@ -50,24 +75,7 @@ async def ingest_movies(pages: int = 1, reset: bool = False):
         movies = await tmdb_client.fetch_popular_movies(page=page)
         all_movies.extend(movies)
     
-    documents = []
-    for movie in all_movies:
-        if movie["id"] in existing_ids:
-            continue
-            
-        # Create a rich text representation for embedding
-        content = f"Title: {movie['title']}\nOverview: {movie['overview']}"
-        
-        # Metadata for filtering later
-        metadata = {
-            "tmdb_id": movie["id"],
-            "title": movie["title"],
-            "release_date": movie.get("release_date", ""),
-            "vote_average": movie.get("vote_average", 0),
-        }
-        
-        doc = Document(page_content=content, metadata=metadata)
-        documents.append(doc)
+    documents = prepare_movie_documents(all_movies, existing_ids)
     
     if not documents:
         print("No new movies to ingest.")

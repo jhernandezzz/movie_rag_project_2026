@@ -18,6 +18,12 @@ Successfully integrated Google Gemini to transform raw search results into a con
 - **LCEL Chains:** Used the pipe (`|`) operator for the chain to make the code readable and easy to debug or extend (e.g., adding memory/history later).
 - **Prompt Engineering:** Optimized the prompt to ensure the model stays "grounded" in the provided context and avoids making up movies that aren't in the database.
 
+## 🧪 Verification (Unit & Integration Testing)
+- **Prompt Construction:** `test_format_docs` and `test_prompt_template` verify that the RAG context is built correctly and the "CinemaRAG" persona is preserved.
+- **Mocked LLM API:** `test_generate_chat_response` utilizes `unittest.mock` to simulate Gemini API responses, ensuring the RAG chain logic is tested without external costs or connectivity issues.
+- **"No-Results" Robustness:** `test_generate_chat_response_no_docs` confirms the assistant handles cases with no relevant movies gracefully, as per the persona instructions.
+- **Chat Endpoint:** `test_chat_endpoint_success` provides an integration check for the FastAPI `/chat` endpoint, ensuring seamless communication between the API and the RAG engine.
+
 ## Observations
 - The system successfully maps abstract requests (e.g., "dark action") to specific characters and plot points (e.g., *The Punisher*) found in the vector store.
 - Free-tier rate limits (429) require careful model selection; "latest" aliases are more stable than specific version strings.

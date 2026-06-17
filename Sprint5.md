@@ -19,6 +19,12 @@ Successfully built a functional, responsive web interface for CinemaRAG. This sp
 - **Version Pinning:** Reverted to React 18 and Next.js 14.2.x to maintain compatibility with existing peer dependencies (Lucide-React).
 - **Client-Side Fetching:** Implemented a clean API client in `frontend/lib/api.ts` to keep business logic separate from UI components.
 
+## 🧪 Verification (UI Testing)
+- **Component Rendering:** Tests verify that the `ChatInterface` correctly displays the "Welcome" state and individual `MessageBubble` components based on the message role.
+- **Interaction & State:** Verified that user input updates the local state and triggers the appropriate loading animations while waiting for the LLM.
+- **Mocked API Integration:** Used Vitest to mock the `chat` API call, ensuring the frontend correctly processes and displays the JSON response from the backend.
+- **Error Resilience:** Confirms that the UI displays a user-friendly error message if the backend service is unavailable or returns an error.
+
 ## Observations
 - The interface handles long LLM responses gracefully with an auto-scrolling chat window.
 - The use of `lucide-react` icons provides intuitive visual cues for the user.

@@ -16,3 +16,9 @@ Successfully implemented the core RAG data pipeline. This sprint involved fetchi
 - **Async HTTPX:** Used `httpx` instead of `requests` for the TMDB client to maintain non-blocking I/O within FastAPI's async event loop.
 - **Content Formatting:** Designed a specific template for embeddings (`Title: ... \n Overview: ...`) to ensure the vector representation captures both the name and the narrative context of the movie.
 - **Metadata Preservation:** Stored TMDB IDs, titles, and vote averages alongside vectors to enable rich metadata filtering in future sprints.
+
+## 🧪 Verification (Unit Testing)
+- **Data Transformation:** `test_prepare_movie_documents` ensures TMDB API responses are correctly mapped to LangChain `Document` objects with appropriate metadata.
+- **Malformed Data Handling:** `test_prepare_movie_documents_malformed_data` verifies that missing optional fields (like release date or rating) don't crash the pipeline and are assigned sensible defaults.
+- **Embedding Dimensions:** `test_embedding_dimensions` confirms that the local HuggingFace model produces 384-dimensional vectors as required by the `all-MiniLM-L6-v2` architecture.
+- **Deduplication:** Tests verify that the `existing_ids` filter correctly skips movies already present in the vector store.

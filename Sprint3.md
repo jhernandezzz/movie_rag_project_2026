@@ -14,5 +14,11 @@ Successfully implemented the retrieval layer of the RAG pipeline. This sprint en
 - **Score Inclusion:** Included the similarity score in the response to help evaluate the "confidence" of the RAG system's matches.
 - **Deduplication Strategy:** Implemented a robust check for existing TMDB IDs before ingestion and added a `reset` parameter to the ingestion endpoint to allow for a clean state.
 
+## 🧪 Verification (Unit & Integration Testing)
+- **Search Logic:** `test_search_movies_formatting` ensures that retrieval results are correctly structured and that metadata is accurately extracted from the vector store response.
+- **API Status Codes:** Integration tests verify that `/health` and `/search` endpoints return `200 OK` on success and `422 Unprocessable Entity` when required parameters are missing.
+- **Response Shape:** `test_search_endpoint_success` validates that the JSON response contains the expected fields (`results`, `query`) and matches the frontend requirements.
+- **Relevance Thresholding:** Tests confirm that the system correctly maps vector similarity scores to the API response.
+
 ## Observations
 - The semantic search successfully identified "Masters of the Universe" for a superhero query, demonstrating that the embedding model understands high-level concepts even when specific keywords might be missing.

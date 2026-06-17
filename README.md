@@ -52,6 +52,32 @@ To populate your local movie database, trigger the ingestion endpoint:
 curl -X POST "http://localhost:8000/ingest?pages=5"
 ```
 
+## 🧪 Testing
+
+The project includes comprehensive test suites for both the backend and frontend.
+
+### Running Backend Tests
+From the project root:
+```bash
+# Set PYTHONPATH so Python can find the 'app' module
+export PYTHONPATH=backend
+
+# Run all tests
+python3 -m pytest backend/tests/
+```
+
+### Running Frontend Tests
+From the `frontend` directory:
+```bash
+npm test
+```
+
+### Test Coverage
+- **Data Pipeline:** Validates TMDB data transformation, embedding dimensions, and malformed data handling.
+- **Retrieval:** Tests semantic search accuracy, result formatting, and API status codes.
+- **LLM Logic:** Mocks the Gemini API to test prompt construction, persona consistency, and "no-results" handling.
+- **UI/Frontend:** Uses Vitest and React Testing Library to verify component rendering, loading states, and API integration.
+
 ## 📈 Roadmap
 
 - [x] **Sprint 5:** Functional Next.js Chat Interface.
