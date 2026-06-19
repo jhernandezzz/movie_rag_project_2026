@@ -1,0 +1,17 @@
+[
+  {
+    "question": "What are some good sci-fi movies to watch?",
+    "ground_truth_context": "Science fiction films that explore futuristic concepts and technology",
+    "ground_truth": "There are many excellent sci-fi movies available"
+  },
+  {
+    "question": "Can you recommend a movie with action and adventure?",
+    "ground_truth_context": "Action-adventure films with thrilling sequences and exploration",
+    "ground_truth": "Action-adventure films offer excitement and exploration"
+  },
+  {
+    "question": "I'm looking for a romantic comedy movie",
+    "ground_truth_context": "Romantic comedy films that blend humor with romance",
+    "ground_truth": "Romantic comedies combine humor and love stories"
+  }
+]

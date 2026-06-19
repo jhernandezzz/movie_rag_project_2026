@@ -168,8 +168,15 @@ def prepare_movie_documents(movies, existing_ids=None):
         documents.append(doc)
     return documents
 
-async def ingest_movies(pages: int = 1, reset: bool = False):
-    """Fetch movies from TMDB and store them in pgvector."""
+async def ingest_movies(pages: int = 1, reset: bool = False, use_top_rated: bool = False):
+    """
+    Fetch movies from TMDB and store them in pgvector.
+    
+    Args:
+        pages: Number of pages to fetch (20 movies per page)
+        reset: Clear existing collection before ingesting
+        use_top_rated: If True, fetch top-rated movies instead of popular
+    """
     init_db()
     engine = PGEngine.from_connection_string(CONNECTION_STRING)
     _migrate_legacy_pgvector_collection(engine)
@@ -187,9 +194,16 @@ async def ingest_movies(pages: int = 1, reset: bool = False):
         existing_ids = get_existing_tmdb_ids()
 
     all_movies = []
+    endpoint_name = "top_rated" if use_top_rated else "popular"
+    print(f"Fetching {pages} pages of {endpoint_name} movies from TMDB...")
+    
     for page in range(1, pages + 1):
-        movies = await tmdb_client.fetch_popular_movies(page=page)
+        if use_top_rated:
+            movies = await tmdb_client.fetch_top_rated_movies(page=page)
+        else:
+            movies = await tmdb_client.fetch_popular_movies(page=page)
         all_movies.extend(movies)
+        print(f"  Page {page}: Fetched {len(movies)} movies")
 
     documents = prepare_movie_documents(all_movies, existing_ids)
 
@@ -204,5 +218,5 @@ async def ingest_movies(pages: int = 1, reset: bool = False):
         table_name=COLLECTION_NAME,
     )
 
-    print(f"Successfully ingested {len(documents)} NEW movies into pgvector.")
+    print(f"✓ Successfully ingested {len(documents)} NEW {endpoint_name} movies into pgvector.")
     return len(documents)

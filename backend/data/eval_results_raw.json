@@ -1,0 +1,146 @@
+[
+    {
+        "question":"What are some good sci-fi movies to watch?",
+        "ground_truth":"Science fiction films that explore futuristic concepts and technology",
+        "retrieved_context":"Title: Mortal Kombat II\nOverview: Title: Mortal Kombat II\nOverview: The fan favorite champions\u2014now joined by Johnny Cage himself\u2014are pitted against one another in the ultimate, no-holds barred, gory battle to defeat the dark rule of Shao Kahn that threatens the very existence of the Earthrealm and its defenders.\n\nTitle: The Super Mario Galaxy Movie\nOverview: Title: The Super Mario Galaxy Movie\nOverview: Having thwarted Bowser's previous plot to marry Princess Peach, Mario and Luigi now face a fresh threat in Bowser Jr., who is determined to liberate his father from captivity and restore the family legacy. Alongside companions new and old, the brothers travel across the stars to stop the young heir's crusade.\n\nTitle: The Furious\nOverview: Title: The Furious\nOverview: After Wang Wei's daughter is kidnapped by a criminal network and he receives no help from the corrupt police, Wei sets out to find her himself. His only ally is Navin, a relentless journalist whose wife has mysteriously disappeared. Fueled by a furious vengeance, the unlikely duo ruthlessly battle the kidnappers in this explosive martial arts showdown.\n\nTitle: Lee Cronin's The Mummy\nOverview: Title: Lee Cronin's The Mummy\nOverview: The young daughter of a journalist disappears into the desert without a trace\u2014eight years later, the broken family is shocked when she is returned to them, as what should be a joyful reunion turns into a living nightmare.\n\nTitle: Madness\nOverview: Title: Madness\nOverview: An escaped convicted murderer invades the cottage of a man, his wife and the wife's sister, whereupon he proceeds to torment this already dysfunctional trio with rape and violence.",
+        "answer":"ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more informatio",
+        "search_results":[
+            {
+                "title":"Mortal Kombat II",
+                "overview":"Title: Mortal Kombat II\nOverview: The fan favorite champions\u2014now joined by Johnny Cage himself\u2014are pitted against one another in the ultimate, no-holds barred, gory battle to defeat the dark rule of Shao Kahn that threatens the very existence of the Earthrealm and its defenders.",
+                "score":0.7803104883,
+                "tmdb_id":931285,
+                "release_date":"2026-05-06",
+                "vote_average":7.985
+            },
+            {
+                "title":"The Super Mario Galaxy Movie",
+                "overview":"Title: The Super Mario Galaxy Movie\nOverview: Having thwarted Bowser's previous plot to marry Princess Peach, Mario and Luigi now face a fresh threat in Bowser Jr., who is determined to liberate his father from captivity and restore the family legacy. Alongside companions new and old, the brothers travel across the stars to stop the young heir's crusade.",
+                "score":0.8383176125,
+                "tmdb_id":1226863,
+                "release_date":"2026-04-01",
+                "vote_average":8.195
+            },
+            {
+                "title":"The Furious",
+                "overview":"Title: The Furious\nOverview: After Wang Wei's daughter is kidnapped by a criminal network and he receives no help from the corrupt police, Wei sets out to find her himself. His only ally is Navin, a relentless journalist whose wife has mysteriously disappeared. Fueled by a furious vengeance, the unlikely duo ruthlessly battle the kidnappers in this explosive martial arts showdown.",
+                "score":0.8657515656,
+                "tmdb_id":1280738,
+                "release_date":"2026-06-10",
+                "vote_average":8.1
+            },
+            {
+                "title":"Lee Cronin's The Mummy",
+                "overview":"Title: Lee Cronin's The Mummy\nOverview: The young daughter of a journalist disappears into the desert without a trace\u2014eight years later, the broken family is shocked when she is returned to them, as what should be a joyful reunion turns into a living nightmare.",
+                "score":0.8755807057,
+                "tmdb_id":1304313,
+                "release_date":"2026-04-15",
+                "vote_average":8.042
+            },
+            {
+                "title":"Madness",
+                "overview":"Title: Madness\nOverview: An escaped convicted murderer invades the cottage of a man, his wife and the wife's sister, whereupon he proceeds to torment this already dysfunctional trio with rape and violence.",
+                "score":0.8762870394,
+                "tmdb_id":28322,
+                "release_date":"1980-03-20",
+                "vote_average":4.969
+            }
+        ]
+    },
+    {
+        "question":"Can you recommend a movie with action and adventure?",
+        "ground_truth":"Action-adventure films with thrilling sequences and exploration",
+        "retrieved_context":"Title: Madness\nOverview: Title: Madness\nOverview: An escaped convicted murderer invades the cottage of a man, his wife and the wife's sister, whereupon he proceeds to torment this already dysfunctional trio with rape and violence.\n\nTitle: The Furious\nOverview: Title: The Furious\nOverview: After Wang Wei's daughter is kidnapped by a criminal network and he receives no help from the corrupt police, Wei sets out to find her himself. His only ally is Navin, a relentless journalist whose wife has mysteriously disappeared. Fueled by a furious vengeance, the unlikely duo ruthlessly battle the kidnappers in this explosive martial arts showdown.\n\nTitle: Bhooth Bangla\nOverview: Title: Bhooth Bangla\nOverview: A man inherits a palace in rural Mangalpur and plans his sister's wedding there, but strange supernatural events and panicked locals force him to investigate the property's mysterious past.\n\nTitle: The Super Mario Galaxy Movie\nOverview: Title: The Super Mario Galaxy Movie\nOverview: Having thwarted Bowser's previous plot to marry Princess Peach, Mario and Luigi now face a fresh threat in Bowser Jr., who is determined to liberate his father from captivity and restore the family legacy. Alongside companions new and old, the brothers travel across the stars to stop the young heir's crusade.\n\nTitle: Obsession\nOverview: Title: Obsession\nOverview: After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
+        "answer":"ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more informatio",
+        "search_results":[
+            {
+                "title":"Madness",
+                "overview":"Title: Madness\nOverview: An escaped convicted murderer invades the cottage of a man, his wife and the wife's sister, whereupon he proceeds to torment this already dysfunctional trio with rape and violence.",
+                "score":0.7134999035,
+                "tmdb_id":28322,
+                "release_date":"1980-03-20",
+                "vote_average":4.969
+            },
+            {
+                "title":"The Furious",
+                "overview":"Title: The Furious\nOverview: After Wang Wei's daughter is kidnapped by a criminal network and he receives no help from the corrupt police, Wei sets out to find her himself. His only ally is Navin, a relentless journalist whose wife has mysteriously disappeared. Fueled by a furious vengeance, the unlikely duo ruthlessly battle the kidnappers in this explosive martial arts showdown.",
+                "score":0.7633120724,
+                "tmdb_id":1280738,
+                "release_date":"2026-06-10",
+                "vote_average":8.1
+            },
+            {
+                "title":"Bhooth Bangla",
+                "overview":"Title: Bhooth Bangla\nOverview: A man inherits a palace in rural Mangalpur and plans his sister's wedding there, but strange supernatural events and panicked locals force him to investigate the property's mysterious past.",
+                "score":0.7983426211,
+                "tmdb_id":1239134,
+                "release_date":"2026-04-16",
+                "vote_average":5.5
+            },
+            {
+                "title":"The Super Mario Galaxy Movie",
+                "overview":"Title: The Super Mario Galaxy Movie\nOverview: Having thwarted Bowser's previous plot to marry Princess Peach, Mario and Luigi now face a fresh threat in Bowser Jr., who is determined to liberate his father from captivity and restore the family legacy. Alongside companions new and old, the brothers travel across the stars to stop the young heir's crusade.",
+                "score":0.8126816228,
+                "tmdb_id":1226863,
+                "release_date":"2026-04-01",
+                "vote_average":8.195
+            },
+            {
+                "title":"Obsession",
+                "overview":"Title: Obsession\nOverview: After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
+                "score":0.8325299569,
+                "tmdb_id":1339713,
+                "release_date":"2026-05-13",
+                "vote_average":7.9
+            }
+        ]
+    },
+    {
+        "question":"I'm looking for a romantic comedy movie",
+        "ground_truth":"Romantic comedy films that blend humor with romance",
+        "retrieved_context":"Title: Madness\nOverview: Title: Madness\nOverview: An escaped convicted murderer invades the cottage of a man, his wife and the wife's sister, whereupon he proceeds to torment this already dysfunctional trio with rape and violence.\n\nTitle: Salitan\nOverview: Title: Salitan\nOverview: A suspicious wife follows her husband in Bali. She meets a dashing man who captures her heart. She soon wants her husband to really have an affair to alleviate the guilt she is feeling.\n\nTitle: Hai Jawani Toh Ishq Hona Hai\nOverview: Title: Hai Jawani Toh Ishq Hona Hai\nOverview: When Jass leaves his marriage over conflicting priorities, a new romance abroad is upended by shocking revelations, forcing him to confront love, loyalty, and the true meaning of commitment.\n\nTitle: Obsession\nOverview: Title: Obsession\nOverview: After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.\n\nTitle: Bhooth Bangla\nOverview: Title: Bhooth Bangla\nOverview: A man inherits a palace in rural Mangalpur and plans his sister's wedding there, but strange supernatural events and panicked locals force him to investigate the property's mysterious past.",
+        "answer":"ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more informatio",
+        "search_results":[
+            {
+                "title":"Madness",
+                "overview":"Title: Madness\nOverview: An escaped convicted murderer invades the cottage of a man, his wife and the wife's sister, whereupon he proceeds to torment this already dysfunctional trio with rape and violence.",
+                "score":0.6438684443,
+                "tmdb_id":28322,
+                "release_date":"1980-03-20",
+                "vote_average":4.969
+            },
+            {
+                "title":"Salitan",
+                "overview":"Title: Salitan\nOverview: A suspicious wife follows her husband in Bali. She meets a dashing man who captures her heart. She soon wants her husband to really have an affair to alleviate the guilt she is feeling.",
+                "score":0.7086326529,
+                "tmdb_id":1226293,
+                "release_date":"2024-02-16",
+                "vote_average":4.375
+            },
+            {
+                "title":"Hai Jawani Toh Ishq Hona Hai",
+                "overview":"Title: Hai Jawani Toh Ishq Hona Hai\nOverview: When Jass leaves his marriage over conflicting priorities, a new romance abroad is upended by shocking revelations, forcing him to confront love, loyalty, and the true meaning of commitment.",
+                "score":0.718564217,
+                "tmdb_id":1308553,
+                "release_date":"2026-06-04",
+                "vote_average":5.722
+            },
+            {
+                "title":"Obsession",
+                "overview":"Title: Obsession\nOverview: After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
+                "score":0.7371654574,
+                "tmdb_id":1339713,
+                "release_date":"2026-05-13",
+                "vote_average":7.9
+            },
+            {
+                "title":"Bhooth Bangla",
+                "overview":"Title: Bhooth Bangla\nOverview: A man inherits a palace in rural Mangalpur and plans his sister's wedding there, but strange supernatural events and panicked locals force him to investigate the property's mysterious past.",
+                "score":0.740837127,
+                "tmdb_id":1239134,
+                "release_date":"2026-04-16",
+                "vote_average":5.5
+            }
+        ]
+    }
+]

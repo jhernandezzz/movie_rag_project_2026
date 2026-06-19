@@ -11,7 +11,17 @@ class TMDBClient:
         }
 
     async def fetch_popular_movies(self, page: int = 1):
+        """Fetch popular/trending movies from TMDB."""
         url = f"{TMDB_BASE_URL}/movie/popular"
+        params = {"page": page}
+        async with httpx.AsyncClient() as client:
+            response = await client.get(url, headers=self.headers, params=params)
+            response.raise_for_status()
+            return response.json().get("results", [])
+
+    async def fetch_top_rated_movies(self, page: int = 1):
+        """Fetch top-rated movies from TMDB for high-quality content."""
+        url = f"{TMDB_BASE_URL}/movie/top_rated"
         params = {"page": page}
         async with httpx.AsyncClient() as client:
             response = await client.get(url, headers=self.headers, params=params)

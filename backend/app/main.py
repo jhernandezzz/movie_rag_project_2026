@@ -24,14 +24,16 @@ async def root():
     return {"message": "Welcome to CinemaRAG API"}
 
 @app.post("/ingest")
-async def trigger_ingestion(background_tasks: BackgroundTasks, pages: int = 1, reset: bool = False):
+async def trigger_ingestion(background_tasks: BackgroundTasks, pages: int = 1, reset: bool = False, top_rated: bool = False):
     """
     Trigger the ingestion pipeline as a background task.
-    'pages' determines how many pages of popular movies to fetch from TMDB.
+    'pages' determines how many pages of movies to fetch (20 per page).
     'reset' will wipe the existing collection before ingesting.
+    'top_rated' will fetch top-rated movies instead of popular (for diversity).
     """
-    background_tasks.add_task(ingest_movies, pages, reset)
-    return {"message": f"Ingestion started for {pages} pages of movies (reset={reset}) in the background."}
+    endpoint = "top-rated" if top_rated else "popular"
+    background_tasks.add_task(ingest_movies, pages, reset, top_rated)
+    return {"message": f"Ingestion started for {pages} pages of {endpoint} movies (reset={reset}) in the background."}
 
 @app.get("/search")
 async def search(query: str = Query(..., min_length=1), k: int = 5):

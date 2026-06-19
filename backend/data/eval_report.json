@@ -1,0 +1,24 @@
+{
+    "timestamp": "2026-06-18T20:53:08.459731",
+    "testset_size": 3,
+    "evaluation_count": 3,
+    "errors": 3,
+    "success_rate": "0.0%",
+    "sample_results": [
+        {
+            "question": "What are some good sci-fi movies to watch?",
+            "answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more informatio",
+            "retrieved_context": "Title: Mortal Kombat II\nOverview: Title: Mortal Kombat II\nOverview: The fan favorite champions\u2014now joined by Johnny Cage himself\u2014are pitted against on..."
+        },
+        {
+            "question": "Can you recommend a movie with action and adventure?",
+            "answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more informatio",
+            "retrieved_context": "Title: Madness\nOverview: Title: Madness\nOverview: An escaped convicted murderer invades the cottage of a man, his wife and the wife's sister, whereupo..."
+        },
+        {
+            "question": "I'm looking for a romantic comedy movie",
+            "answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more informatio",
+            "retrieved_context": "Title: Madness\nOverview: Title: Madness\nOverview: An escaped convicted murderer invades the cottage of a man, his wife and the wife's sister, whereupo..."
+        }
+    ]
+}
