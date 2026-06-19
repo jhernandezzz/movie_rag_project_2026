@@ -27,26 +27,33 @@ An intelligent, full-stack movie discovery engine powered by **Retrieval-Augment
 ## 🏁 Getting Started
 
 ### 1. Prerequisites
+
 - Docker & Docker Compose
 - Google Gemini API Key ([Get it here](https://aistudio.google.com/))
 - TMDB Read Access Token ([Get it here](https://www.themoviedb.org/settings/api))
 
 ### 2. Setup Environment
+
 ```bash
 cp .env.example .env
 ```
+
 Update the `.env` file with your specific API keys.
 
 ### 3. Launch Application
+
 ```bash
 docker-compose up --build
 ```
+
 - **Frontend:** `http://localhost:3000`
 - **Backend API:** `http://localhost:8000`
 - **API Docs:** `http://localhost:8000/docs`
 
 ### 4. Data Ingestion
+
 To populate your local movie database, trigger the ingestion endpoint:
+
 ```bash
 # Ingest 5 pages of popular movies (Background task)
 curl -X POST "http://localhost:8000/ingest?pages=5"
@@ -57,22 +64,40 @@ curl -X POST "http://localhost:8000/ingest?pages=5"
 The project includes comprehensive test suites for both the backend and frontend.
 
 ### Running Backend Tests
+
 From the project root:
+
 ```bash
+# Activate the backend virtual environment
+source .venv/bin/activate
+
 # Set PYTHONPATH so Python can find the 'app' module
 export PYTHONPATH=backend
 
-# Run all tests
-python3 -m pytest backend/tests/
+# Run all backend tests
+python -m pytest backend/tests/
 ```
 
+If you do not yet have the virtual environment installed, run:
+
+```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -r backend/requirements.txt
+```
+
+> Note: The backend is designed for Python 3.11+. Running tests under Python 3.9 can still emit Google package deprecation warnings and OpenSSL/urllib3 warnings even when the code passes.
+
 ### Running Frontend Tests
+
 From the `frontend` directory:
+
 ```bash
 npm test
 ```
 
 ### Test Coverage
+
 - **Data Pipeline:** Validates TMDB data transformation, embedding dimensions, and malformed data handling.
 - **Retrieval:** Tests semantic search accuracy, result formatting, and API status codes.
 - **LLM Logic:** Mocks the Gemini API to test prompt construction, persona consistency, and "no-results" handling.

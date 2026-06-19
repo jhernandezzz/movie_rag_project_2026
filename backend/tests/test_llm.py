@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import MagicMock, patch, AsyncMock
-from httpx import AsyncClient
+from httpx import ASGITransport, AsyncClient
 from app.main import app
 from app.llm import format_docs, prompt, generate_chat_response
 from langchain_core.documents import Document
@@ -93,7 +93,7 @@ async def test_chat_endpoint_success():
     with patch("app.main.generate_chat_response", new_callable=AsyncMock) as mock_gen:
         mock_gen.return_value = "Mocked LLM Response"
         
-        async with AsyncClient(app=app, base_url="http://test") as ac:
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
             response = await ac.get("/chat?query=tell me about batman")
             
     assert response.status_code == 200

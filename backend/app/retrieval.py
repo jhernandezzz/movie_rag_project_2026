@@ -1,15 +1,4 @@
-from langchain_community.vectorstores.pgvector import PGVector
-from app.config import settings
-from app.ingestion import embeddings, CONNECTION_STRING, COLLECTION_NAME
-
-def get_vector_store():
-    """Get a connection to the existing vector store."""
-    return PGVector(
-        connection_string=CONNECTION_STRING,
-        embedding_function=embeddings,
-        collection_name=COLLECTION_NAME,
-        use_jsonb=True,
-    )
+from app.ingestion import embeddings, get_vector_store
 
 async def search_movies(query: str, k: int = 5):
     """

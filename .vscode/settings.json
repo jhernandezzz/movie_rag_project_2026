@@ -1,0 +1,14 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.analysis.extraPaths": ["${workspaceFolder}/backend"],
+  "css.lint.unknownAtRules": "ignore",
+  "files.exclude": {
+    "**/.next": true
+  },
+  "search.exclude": {
+    "**/.next": true
+  },
+  "files.watcherExclude": {
+    "**/.next/**": true
+  }
+}

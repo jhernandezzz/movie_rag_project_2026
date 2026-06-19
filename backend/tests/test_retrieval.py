@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import MagicMock, patch
-from httpx import AsyncClient
+from httpx import ASGITransport, AsyncClient
 from app.main import app
 from app.retrieval import search_movies
 from langchain_core.documents import Document
@@ -35,7 +35,7 @@ async def test_search_movies_formatting():
 @pytest.mark.asyncio
 async def test_health_endpoint():
     """Test that the health check endpoint returns 200."""
-    async with AsyncClient(app=app, base_url="http://test") as ac:
+    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
         response = await ac.get("/health")
     assert response.status_code == 200
     assert response.json() == {"status": "healthy", "service": "CinemaRAG"}
@@ -53,7 +53,7 @@ async def test_search_endpoint_success():
     }]
     
     with patch("app.main.search_movies", return_value=mock_results):
-        async with AsyncClient(app=app, base_url="http://test") as ac:
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
             response = await ac.get("/search?query=scifi")
             
     assert response.status_code == 200
@@ -65,6 +65,6 @@ async def test_search_endpoint_success():
 @pytest.mark.asyncio
 async def test_search_endpoint_validation():
     """Test that the /search endpoint requires a query parameter."""
-    async with AsyncClient(app=app, base_url="http://test") as ac:
+    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
         response = await ac.get("/search") # No query
     assert response.status_code == 422 # Validation error
